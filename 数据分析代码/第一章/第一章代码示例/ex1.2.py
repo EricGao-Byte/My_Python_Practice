@@ -24,5 +24,6 @@ print(np.std(a) / np.mean(a))
 
 s = pd.Series(a)
 # 求偏度print(s.skew())
+print("偏度"+s.skew())
 # 求峰度
 print(s.kurt())
