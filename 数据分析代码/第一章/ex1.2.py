@@ -13,13 +13,13 @@ a = [74.3, 78.8, 68.8, 78.0, 70.4, 80.5, 80.5, 69.7, 71.2, 73.5
     , 73.5, 79.5, 70.4, 76.5, 72.7, 77.2, 84.3, 75.0, 76.5, 70.4]
 a = np.array(a)
 # 求均值
-print(np.mean(a))
-# 求标准差
-print(np.std(a))
+print(a.mean())
 # 求方差
-print(np.var(a))
-# 求变异系数
-print(np.std(a) / np.mean(a))
+print(a.var())
+# 求标准差
+print(a.std())
+# 求变异系数=标准差/均值
+print(a.std() / a.mean())
 
 s = pd.Series(a)
 # 求偏度

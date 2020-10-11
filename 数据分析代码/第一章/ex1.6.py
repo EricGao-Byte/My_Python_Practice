@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 a = [74.3, 78.8, 68.8, 78.0, 70.4, 80.5, 80.5, 69.7, 71.2, 73.5
     , 79.5, 75.6, 75.0, 78.8, 72.0, 72.0, 72.0, 74.3, 71.2, 72.0
@@ -11,18 +10,19 @@ a = [74.3, 78.8, 68.8, 78.0, 70.4, 80.5, 80.5, 69.7, 71.2, 73.5
     , 67.2, 76.5, 72.7, 70.4, 77.2, 68.8, 67.5, 67.5, 67.3, 72.7
     , 75.8, 73.5, 75.0, 73.5, 73.5, 73.5, 72.7, 81.6, 70.3, 74.3
     , 73.5, 79.5, 70.4, 76.5, 72.7, 77.2, 84.3, 75.0, 76.5, 70.4]
-a = np.array(a)
-# 求均值
-print(np.mean(a))
-# 求标准差
-print(np.std(a))
-# 求方差
-print(np.var(a))
-# 求变异系数
-print(np.std(a) / np.mean(a))
 
-s = pd.Series(a)
-# 求偏度
-print(s.skew())
-# 求峰度
-print(s.kurt())
+a = np.array(a)
+# 求分位数
+print(np.percentile(a, (75, 25, 99, 95, 10, 5, 1), interpolation='midpoint'))
+# 求四分位极差
+Q = np.percentile(a, (75, 25), interpolation='midpoint')
+R = Q[0] - Q[1]
+print(R)
+# 求三均值
+M = np.median(a)
+print(0.25 * Q[0] + 0.5 * M + 0.25 * Q[1])
+# 求四分位标准差
+print(R / 1.349)
+# 求上下截断点
+print(Q[1] - 1.5 * R)
+print(Q[0] + 1.5 * R)

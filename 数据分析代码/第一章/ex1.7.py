@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 from scipy import stats
 
 a = [74.3, 78.8, 68.8, 78.0, 70.4, 80.5, 80.5, 69.7, 71.2, 73.5
@@ -17,12 +16,13 @@ a = [74.3, 78.8, 68.8, 78.0, 70.4, 80.5, 80.5, 69.7, 71.2, 73.5
 
 a = np.array(a)
 # 做直方图并拟合正态分布曲线
-sns.distplot(a, color="r", bins=30, kde=True)
+sns.distplot(a, color='r', bins=30, kde=True)
 plt.show()
 
 
 # 经验分布函数图
-def ecdf(a):  # 计算数据的ECDF值
+# 定义经验分布函数
+def ecdf(a):
     x = np.sort(a)
     y = np.arange(1, len(x) + 1) / len(x)
     return (x, y)
@@ -30,14 +30,11 @@ def ecdf(a):  # 计算数据的ECDF值
 
 mu = np.mean(a)
 sigma = np.std(a)
-
-samples = np.random.normal(mu, sigma, 10000)
-
-# Get the CDF of the samples and of the data
-x, y = ecdf(a)
-x_theor, y_theor = ecdf(samples)
-
-# Plot the CDFs and show the plot
+# 生成1000个符合正态分布的数据,均值为mu,标准差为sigma
+samples = np.random.normal(mu, sigma, 1000)
+x, y = ecdf(a)  # 实验值
+x_theor, y_theor = ecdf(samples)  # 理论值
+# 画图
 _ = plt.plot(x_theor, y_theor)
 _ = plt.plot(x, y, marker='.', linestyle='none')
 plt.margins(0.02)

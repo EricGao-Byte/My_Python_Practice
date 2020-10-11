@@ -7,13 +7,12 @@ a = np.array(
 # 求中位数
 print(np.median(a))
 # 求诸分位数
-# interpotation为插值方法,当结果落到两个数据之间时,如何处理数据
-print(np.percentile(a, (75, 25, 99, 95, 90, 10, 5, 1), interpolation='midpoint'))
+print(np.percentile(a, (75, 25, 99, 95, 10, 5, 1), interpolation='midpoint'))
 # 求极差
 print(np.max(a) - np.min(a))
 # 求四分位极差
 Q = np.percentile(a, (75, 25), interpolation='midpoint')
 print(Q[0] - Q[1])
 # 求三均值
-M = np.median(a)
-print(0.25 * Q[1] + 0.5 * M + 0.25 * Q[0])
+M=np.median(a)
+print(0.25 * Q[0] + 0.5 * M + 0.25 * Q[1])
