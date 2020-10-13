@@ -18,7 +18,7 @@ print(np.percentile(a, (75, 25, 99, 95, 90, 10, 5, 1), interpolation='midpoint')
 # 求四分位极差
 Q = np.percentile(a, (75, 25), interpolation='midpoint')
 R = Q[0] - Q[1]
-print(R)
+print('四分位极差为',R)
 # 求三均值
 M = np.median(a)
 print(0.25 * Q[1] + 0.5 * M + 0.25 * Q[0])
