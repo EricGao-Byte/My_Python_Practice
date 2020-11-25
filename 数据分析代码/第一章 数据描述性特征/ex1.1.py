@@ -8,8 +8,9 @@ print(np.mean(a))
 print(np.std(a))
 # 求方差
 print(np.var(a))
-# 求变异系数
+# 求变异系数=标准差/均值
 print(np.std(a) / np.mean(a))
+
 s = pd.Series(a)
 # 求偏度
 print(s.skew())

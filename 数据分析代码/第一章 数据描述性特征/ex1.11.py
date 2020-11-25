@@ -6,5 +6,9 @@ s = pd.Series(
      92, 100])
 df = pd.DataFrame(s)
 df.columns = ['value']
+# 做出箱线图
 f = plt.boxplot(df['value'], vert=False, patch_artist=False, meanline=True, showmeans=True)
 plt.show()
+# vert 是否垂直显示箱线图, false为水平
+# patch_artist false为Line2D显示
+# meanline If True (and showmeans is True), will try to render the mean as a line spanning the full width of the box(以虚线形式表示平均值位置)
